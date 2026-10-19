@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#fff8e7">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<title>Vishal &amp; Kritika – Ring Ceremony</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Great+Vibes&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{--cream:#fff8e7;--rose:#c98a93;--rose-d:#9a5560;--sage:#8fa57e;--sage-d:#66805a;--gold:#c59a4a;--ink:#5a3d42;--backdrop:#f2d3d4;--outer:#ecc6c9;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--backdrop:#34232a;--outer:#2a1b20}}
+:root[data-theme="dark"]{--backdrop:#34232a;--outer:#2a1b20}
+*{box-sizing:border-box;margin:0;-webkit-tap-highlight-color:transparent}
+html,body{height:100%}
+html{scroll-padding-top:env(safe-area-inset-top,0px);-webkit-text-size-adjust:100%;text-size-adjust:100%}
+body{background:var(--outer);color:var(--ink);font-family:"Jost","Helvetica Neue",Arial,sans-serif;overflow:hidden;overscroll-behavior:none;touch-action:manipulation}
+button,a{font-family:inherit;touch-action:manipulation}
+:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+
+/* The invitation is a phone-width column: full screen on phones, centred on laptops */
+.app{position:fixed;top:0;bottom:0;left:0;right:0;width:100%;max-width:460px;margin:0 auto;overflow:hidden;background:var(--cream);box-shadow:0 0 70px rgba(90,40,50,.3)}
+
+/* Stage 1: cover */
+.cover{position:absolute;top:0;left:0;right:0;bottom:0;z-index:10;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:26px;background:radial-gradient(circle at 50% 35%,var(--cream),var(--backdrop) 85%);transition:opacity 1s}
+.cover.gone{opacity:0;pointer-events:none}
+.cover h1{font:400 clamp(2.8rem,13vw,3.8rem)/1.1 "Great Vibes",cursive;color:var(--rose-d);text-align:center}
+.env{position:relative;width:min(320px,78%);height:calc(min(320px,78vw)/1.3);background:linear-gradient(160deg,#e8b4b8,#d99aa2);border-radius:8px;box-shadow:0 24px 50px rgba(120,60,70,.28)}
+.env::before{content:"";position:absolute;top:6px;left:6px;right:6px;bottom:6px;border:1px solid rgba(255,248,231,.7);border-radius:5px}
+.env::after{content:"";position:absolute;top:0;left:0;right:0;bottom:0;border-radius:8px;background:linear-gradient(to top right,transparent 49.4%,rgba(255,248,231,.28) 50%) left/50% 100% no-repeat,linear-gradient(to top left,transparent 49.4%,rgba(255,248,231,.28) 50%) right/50% 100% no-repeat}
+.flap{position:absolute;left:0;right:0;top:0;height:60%;background:#efc3c7;-webkit-clip-path:polygon(0 0,100% 0,50% 100%);clip-path:polygon(0 0,100% 0,50% 100%);transform-origin:top;transition:transform 1s ease;z-index:2;filter:drop-shadow(0 5px 6px rgba(0,0,0,.14))}
+.env.open .flap{transform:rotateX(180deg)}
+.seal{position:absolute;left:50%;top:60%;width:78px;height:78px;margin:-39px 0 0 -39px;border:0;border-radius:50%;z-index:3;cursor:pointer;color:var(--cream);font:400 1.55rem "Great Vibes",cursive;background:radial-gradient(circle at 35% 30%,#e0b25f,#a97d2e 75%);box-shadow:0 6px 14px rgba(90,60,10,.4),inset 0 0 0 3px rgba(255,248,231,.35);animation:beat 2.4s ease-in-out infinite;transition:opacity .5s}
+.env.open .seal{opacity:0;animation:none}
+@keyframes beat{50%{transform:scale(1.08)}}
+.tap{font:italic 400 1.2rem "Cormorant Garamond",serif;color:var(--rose-d)}
+
+/* Stage 2: main page */
+.main{position:absolute;top:0;left:0;right:0;bottom:0;z-index:5;overflow-y:auto;overflow-x:hidden;-webkit-overflow-scrolling:touch;background:linear-gradient(180deg,var(--cream),#fdeee0 55%,#f6e3df);transform:translateY(105%);transition:transform 1.5s cubic-bezier(.65,0,.2,1)}
+.main.show{transform:none}
+.sec{position:relative;min-height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:70px 28px}
+.corner{position:absolute;width:clamp(90px,28vw,130px);height:clamp(90px,28vw,130px);pointer-events:none;z-index:6;opacity:0;transition:opacity 1s 1.6s}
+.main.show~.corner{opacity:.9}
+.c1{top:env(safe-area-inset-top,0px);left:0}.c2{top:env(safe-area-inset-top,0px);right:0;transform:scaleX(-1)}
+.c3{bottom:env(safe-area-inset-bottom,0px);left:0;transform:scaleY(-1)}.c4{bottom:env(safe-area-inset-bottom,0px);right:0;transform:scale(-1,-1)}
+.together{font:italic 500 clamp(1.25rem,5vw,1.5rem)/1.3 "Cormorant Garamond",serif;color:var(--rose-d)}
+.name{font:600 clamp(2.5rem,13vw,3.7rem)/1.05 "Cormorant Garamond",serif;letter-spacing:.14em;margin-right:-.14em;color:var(--ink)}
+.amp{font:400 clamp(3rem,14vw,4.2rem)/1 "Great Vibes",cursive;color:var(--gold);margin:2px 0}
+.vine{width:min(240px,60%);height:26px;margin:16px auto}
+.parents{font:500 clamp(1.15rem,4.6vw,1.4rem)/1.5 "Cormorant Garamond",serif}
+.parents span{display:block;margin:6px 0}
+.request{font:italic 400 clamp(1.2rem,4.8vw,1.45rem)/1.5 "Cormorant Garamond",serif;color:var(--sage-d);max-width:22em;margin-top:18px}
+.scroll{position:absolute;bottom:calc(26px + env(safe-area-inset-bottom,0px));font-size:.85rem;letter-spacing:.08em;color:var(--rose-d);animation:bob 2s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(6px)}}
+
+/* Stage 3: date reveal */
+.btn{display:inline-block;font:500 1rem "Jost",sans-serif;letter-spacing:.06em;text-decoration:none;color:#fff;background:linear-gradient(135deg,var(--rose),var(--rose-d));border:0;border-radius:40px;padding:14px 30px;cursor:pointer;box-shadow:0 8px 20px rgba(154,85,96,.3);transition:transform .2s}
+.btn:hover{transform:translateY(-2px)}
+.btn.sage{background:linear-gradient(135deg,var(--sage),var(--sage-d));box-shadow:0 8px 20px rgba(102,128,90,.3)}
+.btn.line{background:transparent;color:var(--rose-d);box-shadow:none;border:1px solid var(--gold);padding:11px 26px}
+.date{opacity:0;filter:blur(10px);transform:scale(.92);transition:all 1.4s ease}
+.date.in{opacity:1;filter:none;transform:none}
+.date .d{font:600 clamp(2rem,8.5vw,2.8rem)/1.15 "Cormorant Garamond",serif;color:var(--rose-d)}
+.date .t{font:italic 500 1.4rem "Cormorant Garamond",serif;margin-top:8px}
+.date .v{font-size:.95rem;letter-spacing:.05em;margin-top:6px;color:var(--sage-d)}
+.after{display:flex;flex-direction:column;gap:14px;align-items:center;margin-top:26px;opacity:0;transform:translateY(14px);transition:all 1s}
+.after.in{opacity:1;transform:none}
+.row{display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
+.hide{display:none!important}
+
+.music{position:absolute;top:calc(12px + env(safe-area-inset-top,0px));right:14px;z-index:30;width:44px;height:44px;border-radius:50%;border:1px solid var(--gold);background:rgba(255,248,231,.92);font-size:1.15rem;cursor:pointer;color:var(--rose-d)}
+dialog{border:1px solid var(--gold);border-radius:16px;background:var(--cream);color:var(--ink);max-width:min(420px,88vw);padding:28px;text-align:center;font:1.2rem/1.6 "Cormorant Garamond",serif}
+dialog::backdrop{background:rgba(90,61,66,.45)}
+dialog h3{font:400 2.2rem "Great Vibes",cursive;color:var(--rose-d);margin-bottom:10px}
+dialog .btn{margin-top:18px}
+#fx{position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:40}
+@media (prefers-reduced-motion:reduce){.main,.flap,.date,.after,.corner{transition-duration:.01s}.seal,.scroll{animation:none}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="mandala" viewBox="0 0 120 120">
+      <g fill="none" stroke="#c59a4a" stroke-width="1.1">
+        <circle r="24"/><circle r="40" stroke-dasharray="2 5"/><circle r="58"/><circle r="74" stroke-dasharray="1 6"/>
+        <g id="pt"><ellipse cx="36" rx="14" ry="5" fill="#e3aab1" fill-opacity=".55"/><ellipse cx="62" rx="10" ry="3.5" fill="#9fb48e" fill-opacity=".6"/><circle cx="82" r="2.2" fill="#c59a4a"/></g>
+        <use href="#pt" transform="rotate(15)"/><use href="#pt" transform="rotate(30)"/><use href="#pt" transform="rotate(45)"/><use href="#pt" transform="rotate(60)"/><use href="#pt" transform="rotate(75)"/><use href="#pt" transform="rotate(90)"/>
+      </g>
+    </symbol>
+    <symbol id="vine" viewBox="0 0 240 26">
+      <path d="M4 13 C50 2 70 24 120 13 S190 2 236 13" fill="none" stroke="#c59a4a" stroke-width="1.2"/>
+      <g fill="#8fa57e"><ellipse cx="45" cy="8" rx="9" ry="3.4" transform="rotate(-25 45 8)"/><ellipse cx="80" cy="19" rx="9" ry="3.4" transform="rotate(25 80 19)"/><ellipse cx="160" cy="19" rx="9" ry="3.4" transform="rotate(-25 160 19)"/><ellipse cx="195" cy="8" rx="9" ry="3.4" transform="rotate(25 195 8)"/></g>
+      <circle cx="120" cy="13" r="5" fill="#c98a93"/><circle cx="120" cy="13" r="2" fill="#fff8e7"/>
+    </symbol>
+  </defs>
+</svg>
+
+<div class="app" id="app">
+  <button class="music" id="music" aria-label="Turn music on or off" aria-pressed="false">&#128263;</button>
+
+  <!-- Stage 1 -->
+  <section class="cover" id="cover">
+    <h1>You’re Invited</h1>
+    <div class="env" id="env"><div class="flap"></div><button class="seal" id="seal" aria-label="Open the invitation">V&amp;K</button></div>
+    <p class="tap">Tap the seal to open</p>
+  </section>
+
+  <!-- Stage 2 + 3 -->
+  <main class="main" id="main" aria-hidden="true">
+    <section class="sec">
+      <p class="together">Together with their families</p>
+      <svg class="vine" aria-hidden="true"><use href="#vine"/></svg>
+      <h2 class="name">VISHAL</h2>
+      <div class="amp">&amp;</div>
+      <h2 class="name">KRITIKA</h2>
+      <svg class="vine" aria-hidden="true"><use href="#vine"/></svg>
+      <p class="parents"><span>Son of Mr. Harish &amp; Mrs. Kajal</span><span>Daughter of Mr. Kaushal &amp; Mrs. Neeru</span></p>
+      <p class="request">Request the pleasure of your company at their ring ceremony</p>
+      <span class="scroll" aria-hidden="true">Scroll down &#8595;</span>
+    </section>
+
+    <section class="sec" id="s3">
+      <button class="btn" id="revealBtn">Reveal The Date</button>
+      <div class="date" id="date" aria-live="polite">
+        <div class="d">Saturday, 5th December 2026</div>
+        <div class="t">11:00 am</div>
+        <div class="v">Red Ribbon, Samana</div>
+      </div>
+      <div class="after" id="after">
+        <a class="btn sage" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&amp;query=Red+Ribbon+Samana">&#128205; Tap to View Venue</a>
+      </div>
+    </section>
+  </main>
+
+  <svg class="corner c1" aria-hidden="true"><use href="#mandala"/></svg>
+  <svg class="corner c2" aria-hidden="true"><use href="#mandala"/></svg>
+  <svg class="corner c3" aria-hidden="true"><use href="#mandala"/></svg>
+  <svg class="corner c4" aria-hidden="true"><use href="#mandala"/></svg>
+  <canvas id="fx"></canvas>
+</div>
+
+
+<script>
+const $=id=>document.getElementById(id);
+const reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
+
+/* ---- Joyful celebration music, generated in the browser (festive shehnai melody + dhol beat) ---- */
+let ac,master,noise,timer,step=0,next=0,started=false,playing=false;
+const F={C5:523.25,D5:587.33,E5:659.25,G5:783.99,A5:880,C6:1046.5};
+const mel=['E5',0,'G5',0,'A5',0,'G5','E5','G5',0,'E5',0,'D5',0,'C5',0,'E5',0,'G5',0,'A5',0,'C6','A5','G5',0,'E5','G5','A5',0,0,0];
+const STEP=60/116/4;
+function lead(f,t,d){
+  const lp=ac.createBiquadFilter(),g=ac.createGain();lp.type='lowpass';lp.frequency.value=2600;
+  [-6,4].forEach(c=>{const o=ac.createOscillator();o.type='sawtooth';o.frequency.value=f;o.detune.value=c;o.connect(lp);o.start(t);o.stop(t+d+.05)});
+  const b=ac.createOscillator(),bg=ac.createGain();b.type='sine';b.frequency.value=f*2;bg.gain.setValueAtTime(.05,t);bg.gain.exponentialRampToValueAtTime(.001,t+.35);b.connect(bg);bg.connect(master);b.start(t);b.stop(t+.4);
+  lp.connect(g);g.connect(master);g.gain.setValueAtTime(.0001,t);g.gain.linearRampToValueAtTime(.085,t+.02);g.gain.exponentialRampToValueAtTime(.001,t+d);
+}
+function kick(t,v){const o=ac.createOscillator(),g=ac.createGain();o.frequency.setValueAtTime(160,t);o.frequency.exponentialRampToValueAtTime(48,t+.12);g.gain.setValueAtTime(v,t);g.gain.exponentialRampToValueAtTime(.001,t+.25);o.connect(g);g.connect(master);o.start(t);o.stop(t+.3)}
+function tick(t,v,hp,len){const s=ac.createBufferSource(),f=ac.createBiquadFilter(),g=ac.createGain();s.buffer=noise;f.type='highpass';f.frequency.value=hp;g.gain.setValueAtTime(v,t);g.gain.exponentialRampToValueAtTime(.001,t+len);s.connect(f);f.connect(g);g.connect(master);s.start(t,Math.random()*.5);s.stop(t+len+.02)}
+function sched(){
+  while(next<ac.currentTime+.3){
+    const s=step%32,p=s%16,t=next;
+    if(p%4===0)kick(t,.8);else if(p===6||p===10||p===14)kick(t,.4);
+    tick(t,s%2?.07:.16,s%2?9000:6000,.05);
+    if(mel[s])lead(F[mel[s]],t,.3);
+    step++;next+=STEP;
+  }
+}
+function startMusic(){
+  started=true;ac=new (window.AudioContext||window.webkitAudioContext)();
+  master=ac.createGain();master.gain.value=0;master.connect(ac.destination);
+  noise=ac.createBuffer(1,ac.sampleRate,ac.sampleRate);const d=noise.getChannelData(0);for(let i=0;i<d.length;i++)d[i]=Math.random()*2-1;
+  [130.81,196].forEach(f=>{const o=ac.createOscillator(),g=ac.createGain();o.frequency.value=f;g.gain.value=.035;o.connect(g);g.connect(master);o.start()});
+}
+function setMusic(on){
+  if(on&&!started)startMusic();
+  playing=on;
+  if(on){ac.resume();next=ac.currentTime+.08;clearInterval(timer);timer=setInterval(sched,100);master.gain.cancelScheduledValues(ac.currentTime);master.gain.linearRampToValueAtTime(.6,ac.currentTime+.8)}
+  else if(started){clearInterval(timer);master.gain.cancelScheduledValues(ac.currentTime);master.gain.linearRampToValueAtTime(0,ac.currentTime+.4)}
+  $('music').innerHTML=on?'&#128266;':'&#128263;';$('music').setAttribute('aria-pressed',on);
+}
+// celebration burst when the date is revealed: two party-popper pops, a cheer and a sparkle run
+function celebrate(){
+  if(!playing)return;const t=ac.currentTime+.02;
+  tick(t,.7,500,.18);tick(t+.12,.7,700,.18);tick(t+.15,.25,3000,.9);
+  [F.C5,F.E5,F.G5,F.C6,F.C6*1.25,F.C6*1.5].forEach((f,i)=>{const o=ac.createOscillator(),g=ac.createGain();o.type='triangle';o.frequency.value=f;const s=t+.1+i*.07;
+    g.gain.setValueAtTime(.12,s);g.gain.exponentialRampToValueAtTime(.001,s+.5);o.connect(g);g.connect(master);o.start(s);o.stop(s+.55)});
+}
+$('music').addEventListener('click',()=>setMusic(!playing));
+document.addEventListener('visibilitychange',()=>{if(!started)return;if(document.hidden)ac.suspend();else if(playing)ac.resume()});
+
+/* ---- Stage 1 -> 2: open the envelope, the big page slides out ---- */
+$('seal').addEventListener('click',()=>{
+  try{setMusic(true)}catch(e){}
+  $('env').classList.add('open');
+  setTimeout(()=>{$('main').classList.add('show');$('main').setAttribute('aria-hidden','false')},1000);
+  setTimeout(()=>$('cover').classList.add('gone'),2300);
+});
+
+/* ---- Stage 3: reveal the date, then venue + buttons ---- */
+$('revealBtn').addEventListener('click',()=>{
+  $('revealBtn').classList.add('hide');
+  $('date').classList.add('in');
+  confetti();celebrate();
+  setTimeout(()=>$('after').classList.add('in'),1500);
+});
+
+function confetti(){
+  if(reduce)return;
+  const c=$('fx'),x=c.getContext('2d');c.width=$('app').clientWidth;c.height=$('app').clientHeight;
+  const cols=['#c98a93','#e3aab1','#c59a4a','#8fa57e','#fff3d6'],P=[];
+  for(let i=0;i<150;i++){const side=i%2,a=Math.PI*(.28+Math.random()*.22),s=9+Math.random()*10;
+    P.push({x:side?c.width:0,y:c.height,vx:(side?-1:1)*Math.cos(a)*s,vy:-Math.sin(a)*s*1.55,w:5+Math.random()*6,h:3+Math.random()*5,r:Math.random()*6,vr:(Math.random()-.5)*.4,c:cols[i%5]})}
+  let t=0;(function f(){x.clearRect(0,0,c.width,c.height);
+    P.forEach(p=>{p.vy+=.28;p.vx*=.992;p.x+=p.vx;p.y+=p.vy;p.r+=p.vr;x.save();x.translate(p.x,p.y);x.rotate(p.r);x.fillStyle=p.c;x.fillRect(-p.w/2,-p.h/2,p.w,p.h);x.restore()});
+    if(++t<230)requestAnimationFrame(f);else x.clearRect(0,0,c.width,c.height)})();
+}
+</script>
+</body>
+</html>
